@@ -1,3 +1,4 @@
+#deployment YAML definition
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,3 +18,16 @@ spec:
        image: lorenzoparisidocker/hello-springboot:0.0.1-SNAPSHOT
        ports:
          - containerPort: 8080 
+
+#service YAML definition
+apiVersion: v1
+kind: Service
+metadata:
+ name: hello-service
+spec:
+ selector:
+  app: hello
+ ports:
+   - port: 80
+     targetPort: 8080
+ type: LoadBalancer
