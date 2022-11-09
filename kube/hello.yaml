@@ -19,6 +19,8 @@ spec:
        ports:
          - containerPort: 8080 
 
+---
+
 #service YAML definition
 apiVersion: v1
 kind: Service
@@ -26,7 +28,7 @@ metadata:
  name: hello-service
 spec:
  selector:
-  app: hello
+  app: hello-app
  ports:
    - port: 80
      targetPort: 8080
